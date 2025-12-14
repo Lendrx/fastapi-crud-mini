@@ -26,6 +26,7 @@ Um die API lokal auszuführen, starte den Server mit uvicorn über den Paketmana
 
 ```bash
 uv run uvicorn main:app
+```
 
 ## Testen mit Postman
 Hier könnt ihr Postman nehmen, um alle Endpunkte auszuprobieren. Einfach die URL eingeben, Header auf JSON setzen und los geht’s. So könnt ihr sehen, dass alles funktioniert – Items erstellen, lesen, updaten, löschen. Macht auch Spaß zu sehen, dass die Daten in SQLite bleiben.
