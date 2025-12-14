@@ -22,9 +22,10 @@ Die Responses sind clean durch Pydantic Response-Modelle. Kein unnötiger Kram i
 
 ## Server starten
 
-Starte den Server lokal mit uvicorn. Die API ist dann unter http://localhost erreichbar.
+Um die API lokal auszuführen, starte den Server mit uvicorn über den Paketmanager uv:
 
-Danach könnt ihr die API unter `http://127.0.0.1:8000` aufrufen. OpenAPI-Dokumentation gibts unter `/docs`.
+```bash
+uv run uvicorn main:app
 
 ## Testen mit Postman
 Hier könnt ihr Postman nehmen, um alle Endpunkte auszuprobieren. Einfach die URL eingeben, Header auf JSON setzen und los geht’s. So könnt ihr sehen, dass alles funktioniert – Items erstellen, lesen, updaten, löschen. Macht auch Spaß zu sehen, dass die Daten in SQLite bleiben.
