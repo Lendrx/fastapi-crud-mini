@@ -21,11 +21,8 @@ Dieses Projekt zeigt, wie man mit FastAPI eine kleine API erstellt, um Items zu 
 Die Responses sind clean durch Pydantic Response-Modelle. Kein unnötiger Kram in der Ausgabe.
 
 ## Server starten
-Startet den Server einfach lokal mit:
 
-```bash
-uv run uvicorn main:app --host 127.0.0.1 --port 8000
-```
+Starte den Server lokal mit uvicorn. Die API ist dann unter http://localhost erreichbar.
 
 Danach könnt ihr die API unter `http://127.0.0.1:8000` aufrufen. OpenAPI-Dokumentation gibts unter `/docs`.
 
