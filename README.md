@@ -1,4 +1,4 @@
-# FastAPI CRUD Projekt mit SQLite und Postman zum Testen
+# FastAPI Projekt mit SQLite und Postman zum Testen
 
 In diesem Projekt hab ich FastAPI genommen, weil es super einfach ist, schnelle APIs zu bauen.
 Als Paketmanager setze ich auf uv – für mich aktuell der absolute Gamechanger, um Dependencies sauber zu halten und das Ding schnell zu starten
