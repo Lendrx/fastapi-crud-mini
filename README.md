@@ -1,35 +1,36 @@
-# FastAPI CRUD Mini-Projekt
+# FastAPI CRUD Projekt mit SQLite und Postman
 
-## Projektbeschreibung
-Dieses Mini-Projekt implementiert eine einfache RESTful API mit FastAPI zur Verwaltung von Items. Ziel des Projekts ist es, grundlegende Konzepte moderner Backend-Entwicklung zu demonstrieren, insbesondere HTTP-Methoden, Request-Validierung, persistente Datenspeicherung und API-Tests mit Postman. Die Anwendung wurde im Rahmen eines Lernprojekts im Bereich Data Science und AI Engineering erstellt.
+In diesem Projekt hab ich FastAPI genommen, weil es super einfach ist, schnelle APIs zu bauen.
+Als Paketmanager setze ich auf uv – für mich aktuell der absolute Gamechanger, um Dependencies sauber zu halten und das Ding schnell zu starten
 
-## Technischer Überblick
-Die API stellt klassische CRUD-Funktionalitäten (Create, Read, Update, Delete) bereit. Die Datenhaltung erfolgt über eine SQLite-Datenbank, wobei SQLModel für die Modellierung und ORM-Zugriffe genutzt wird. Zur Validierung und Serialisierung der Daten wird Pydantic verwendet. Das Projekt verwendet den modernen Python-Paketmanager **uv** zur Abhängigkeitsverwaltung und Ausführung.
+![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-009688)
+![SQLite](https://img.shields.io/badge/SQLite-persistence-green)
+![uv](https://img.shields.io/badge/uv-package%20manager-purple)
 
-## Verfügbare Endpunkte
-- `POST /items/` – Erstellen eines neuen Items  
-- `GET /items/` – Abrufen aller Items  
-- `GET /items/{item_id}` – Abrufen eines einzelnen Items  
-- `PUT /items/{item_id}` – Aktualisieren eines bestehenden Items  
-- `DELETE /items/{item_id}` – Löschen eines Items
+## Worum geht’s?
+Dieses Projekt zeigt, wie man mit FastAPI eine kleine API erstellt, um Items zu verwalten. CRUD ist am Start: Items erstellen, lesen, updaten und löschen. Alles wird jetzt in SQLite gespeichert, also bleiben die Daten auch nach einem Neustart erhalten. Meiner Meinung nach ein guter Einstieg in persistente Daten und ORM.
 
-Alle Endpunkte liefern standardisierte Responses, die über Pydantic Response-Modelle definiert sind.
+## Endpunkte
+- `POST /items/` – Neues Item anlegen. Hier könnt ihr den Body als JSON rüberschicken.
+- `GET /items/` – Alle Items abholen.
+- `GET /items/{item_id}` – Ein einzelnes Item abholen.
+- `PUT /items/{item_id}` – Ein Item updaten.
+- `DELETE /items/{item_id}` – Item löschen.
 
-## Serverstart
-Der Server wird lokal über den Paketmanager **uv** gestartet:
+Die Responses sind clean durch Pydantic Response-Modelle. Kein unnötiger Kram in der Ausgabe.
+
+## Server starten
+Startet den Server einfach lokal mit:
 
 ```bash
 uv run uvicorn main:app --host 127.0.0.1 --port 8000
 ```
 
-Nach dem Start ist die API unter `http://127.0.0.1:8000` erreichbar. Die automatisch generierte OpenAPI-Dokumentation steht unter `/docs` zur Verfügung.
+Danach könnt ihr die API unter `http://127.0.0.1:8000` aufrufen. OpenAPI-Dokumentation gibts unter `/docs`.
 
-## Testing
-Die Endpunkte können manuell mit Postman getestet werden. Dabei werden folgende Aspekte überprüft:
-- Erstellung, Abruf, Aktualisierung und Löschung von Items
-- Persistenz der Daten in SQLite
-- Konsistenz der Response-Strukturen laut Pydantic-Modellen
+## Testen mit Postman
+Hier könnt ihr Postman nehmen, um alle Endpunkte auszuprobieren. Einfach die URL eingeben, Header auf JSON setzen und los geht’s. So könnt ihr sehen, dass alles funktioniert – Items erstellen, lesen, updaten, löschen. Macht auch Spaß zu sehen, dass die Daten in SQLite bleiben.
 
-## Zielsetzung
-Das Projekt dient als kompakte Übungsgrundlage zum Verständnis von REST-APIs, FastAPI-Grundlagen, ORM-Datenbanken und API-Testing-Workflows. Es bildet eine solide Basis für weiterführende, datengetriebene Backend-Anwendungen, inklusive potenzieller Integration von ML-Modellen oder erweiterten Data-Science-Funktionalitäten.
-
+## Warum das Ganze?
+Das Projekt ist eine gute Übung, um FastAPI, SQLite und API-Tests zu kombinieren. Ihr lernt, wie man Daten persistent speichert, saubere Responses liefert und APIs testet. Außerdem eine Basis, falls ihr später ML-Modelle oder andere Data-Science-Sachen über eine API servieren wollt.
