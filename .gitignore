@@ -1,8 +1,8 @@
 # Python
-**pycache**/
-*.py[cod]
-*.pyo
-*.pyd
+**/__pycache__/
+**/*.py[cod]
+**/*.pyo
+**/*.pyd
 
 # Virtual Environments
 .venv/
@@ -22,3 +22,9 @@ ENV/
 # OS files
 .DS_Store
 Thumbs.db
+
+# SQLite database file
+database.db
+
+# Logs
+*.log
