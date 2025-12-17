@@ -7,7 +7,7 @@ router = APIRouter(prefix="/items", tags=["items"])
 
 @router.post("/", response_model=ItemResponse)
 def create_item(item: ItemCreate):
-    db_item = Item.from_orm(item)
+    db_item = Item.model_validate(item)
     with get_session() as session:
         session.add(db_item)
         session.commit()
