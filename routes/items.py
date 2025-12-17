@@ -3,10 +3,12 @@ from sqlmodel import select
 from database import get_session
 from models import Item, ItemCreate, ItemResponse
 
+# Router für Item-Endpoints
 router = APIRouter(prefix="/items", tags=["items"])
 
 @router.post("/", response_model=ItemResponse)
 def create_item(item: ItemCreate):
+    """Erstellt ein neues Item in der Datenbank."""
     db_item = Item.model_validate(item)
     with get_session() as session:
         session.add(db_item)
@@ -16,12 +18,14 @@ def create_item(item: ItemCreate):
 
 @router.get("/", response_model=list[ItemResponse])
 def read_items():
+    """Gibt alle Items aus der Datenbank zurück."""
     with get_session() as session:
         items = session.exec(select(Item)).all()
     return items
 
 @router.get("/{item_id}", response_model=ItemResponse)
 def read_item(item_id: str):
+    """Gibt ein spezifisches Item anhand der ID zurück."""
     with get_session() as session:
         item = session.get(Item, item_id)
         if not item:
@@ -30,6 +34,7 @@ def read_item(item_id: str):
 
 @router.put("/{item_id}", response_model=ItemResponse)
 def update_item(item_id: str, item: ItemCreate):
+    """Aktualisiert ein bestehendes Item."""
     with get_session() as session:
         db_item = session.get(Item, item_id)
         if not db_item:
@@ -43,6 +48,7 @@ def update_item(item_id: str, item: ItemCreate):
 
 @router.delete("/{item_id}", response_model=ItemResponse)
 def delete_item(item_id: str):
+    """Löscht ein Item aus der Datenbank."""
     with get_session() as session:
         item = session.get(Item, item_id)
         if not item:
